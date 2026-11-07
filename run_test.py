@@ -1,5 +1,5 @@
 from datetime import date
-from run import calcular_idade, dias_faltam
+from run import calcular_idade, dias_faltam, dias_passaram
 
 
 # ---------- Testes de calcular_idade ----------
@@ -36,3 +36,16 @@ def test_dias_faltam_mesmo_dia():
 
 def test_dias_faltam_ate_ano_novo():
     assert dias_faltam(date(2027, 1, 1), date(2026, 10, 28)) == 65
+
+# ---------- Testes de dias_passaram ----------
+
+def test_dias_passaram_no_mesmo_mes():
+    assert dias_passaram(date(2026, 10, 1), date(2026, 10, 28)) == 27
+
+
+def test_dias_passaram_mesmo_dia():
+    assert dias_passaram(date(2026, 10, 28), date(2026, 10, 28)) == 0
+
+
+def test_dias_passaram_um_ano():
+    assert dias_passaram(date(2025, 10, 28), date(2026, 10, 28)) == 365

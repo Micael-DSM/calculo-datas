@@ -21,3 +21,10 @@ def dias_faltam(data_futura, hoje=None):
 
     diferenca = data_futura - hoje
     return diferenca.days
+
+def dias_passaram(data_passada, hoje=None):
+    if hoje is None:
+        hoje = date.today()
+
+    diferenca = hoje - data_passada
+    return diferenca.days
